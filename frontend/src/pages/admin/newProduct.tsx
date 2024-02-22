@@ -4,6 +4,11 @@ import { useCreateProductMutation } from "@/graphql/generated/schema";
 
 export default function NewProduct() {
 
+  const [createAd] = useCreateProductMutation();
+
+  const [imageURL, setImageURL] = useState("");
+
+
 
 
   return (
@@ -18,45 +23,46 @@ export default function NewProduct() {
       <div>
         <label htmlFor="name" className="block  font-medium text-md text-gray-200">Name</label>
         <input
-          // type="text"
-          // name="name"
-          // id="name"
-          // required
-          // value={formData.name}
-          // onChange={handleChange}
+          required
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Playstation 3"
           className="mt-1 block w-full px-3 py-2 border text-gray-200 border-gray-700 bg-[#090B0D] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-purple-700"
         />
       </div>
       <div>
         <label htmlFor="description" className="block  font-medium text-md text-gray-200">Description</label>
         <textarea
-          // name="description"
-          // id="description"
-          // required
-          // value={formData.description}
-          // onChange={handleChange}
+          required
+          rows={7}
+          name="description"
+          id="description"
+          placeholder="Playstation 3"
           className="mt-1 block w-full px-3 py-2 border text-gray-200 border-gray-700 bg-[#090B0D] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-purple-700"
         ></textarea>
       </div>
       <div>
         <label htmlFor="price" className="block  font-medium text-md text-gray-200">Price</label>
         <input
-          // type="text"
-          // name="price"
-          // id="price"
-          // required
-          // value={formData.price}
-          // onChange={handleChange}
+          required
+          type="number"
+          name="price"
+          id="price"
+          min={0}
+          placeholder="349,99"
           className="mt-1 block w-full px-3 py-2 border text-gray-200 border-gray-700 bg-[#090B0D] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-purple-700"
         />
       </div>
       <div>
         <label htmlFor="imageUrl" className="block  font-medium text-md text-gray-200">Image URL</label>
         <input
-          // type="text"
-          // name="imageUrl"
-          // id="imageUrl"
-          // value={formData.imageUrl}
+          type="text"
+          name="imageUrl"
+          id="imageUrl"
+          placeholder="https://imageshack.com/zoot.png"
+          onChange={(e) => setImageUrl(e.target.value)}
+          //value={formData.imageUrl}
           // onChange={handleChange}
           className="mt-1 block w-full px-3 py-2 border  border-gray-700 bg-[#090B0D] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-purple-700"
         />
