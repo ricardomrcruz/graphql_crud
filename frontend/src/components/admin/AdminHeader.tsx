@@ -8,9 +8,9 @@ export default function AdminHeader() {
   ];
 
   return (
-    <header className="h-full b p-20 bg-slate-200">
+    <header className="h-full b p-20 bg-[#161B21]">
       <Link href={"/admin"}>
-        <h1 className="text-4xl mb-10">BackOffice</h1>
+        <h1 className="text-5xl text-purple-700 mb-10">BackOffice</h1>
       </Link>
 
       <div className="flex flex-col">
@@ -18,7 +18,7 @@ export default function AdminHeader() {
           <ActiveLink
             key={l.href}
             href={l.href}
-            className="p-2 rounded-md"
+            className="p-2 rounded-lg bg-black text-purple-700"
             activeClassName="bg-slate-400"
           >
             {l.label}

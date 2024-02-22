@@ -17,7 +17,7 @@ export default function AdminLayout({ children, title }: AdminLayoutProps) {
       </Head>
       <div className="flex h-[100vh]">
         <AdminHeader />
-        <main className="m-10 pl-10 pt-12 w-full">{children}</main>
+        <main className="pl-10 pt-12 w-full bg-[#090B0D]">{children}</main>
       </div>
     </>
   );
