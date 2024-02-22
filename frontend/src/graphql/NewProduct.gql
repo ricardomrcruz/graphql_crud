@@ -1,0 +1,9 @@
+mutation CreateProduct($data: ProductInput!) {
+  createProduct(data: $data) {
+    description
+    id
+    name
+    picture
+    price
+  }
+}

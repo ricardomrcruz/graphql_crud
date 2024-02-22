@@ -1,7 +1,11 @@
 import AdminLayout from "@/components/admin/AdminLayout";
+import { useCreateProductMutation } from "@/graphql/generated/schema";
 
 
-export default function AdminDashboard() {
+export default function NewProduct() {
+
+
+
   return (
     <AdminLayout title="Admin - TGC">
       
