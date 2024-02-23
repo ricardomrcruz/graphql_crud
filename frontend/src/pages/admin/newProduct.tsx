@@ -1,5 +1,7 @@
 import AdminLayout from "@/components/admin/AdminLayout";
 import { useCreateProductMutation } from "@/graphql/generated/schema";
+import { useRouter } from "next/router";
+import { FormEvent, useState } from "react";
 
 
 export default function NewProduct() {
@@ -8,6 +10,12 @@ export default function NewProduct() {
 
   const [imageURL, setImageURL] = useState("");
 
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.target as HTMLFormElement);
+    const formJSON: any = Object.fromEntries(formData.entries());
+    formJSON.price = parseFloat(formJSON.price)
+  }
 
 
 
@@ -58,14 +66,21 @@ export default function NewProduct() {
         <label htmlFor="imageUrl" className="block  font-medium text-md text-gray-200">Image URL</label>
         <input
           type="text"
-          name="imageUrl"
-          id="imageUrl"
-          placeholder="https://imageshack.com/zoot.png"
-          onChange={(e) => setImageUrl(e.target.value)}
-          //value={formData.imageUrl}
-          // onChange={handleChange}
+          name="picture"
+          id="picture"
+          placeholder="https://imageshack.com/zoot.png" 
+          value={imageURl}
+          onChange={(e) => setImageURl(e.target.value)}
+         
           className="mt-1 block w-full px-3 py-2 border  border-gray-700 bg-[#090B0D] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-purple-700"
         />
+        {/* <input 
+        type="file"
+        onChange={(e) => {
+          if(e.target.files?.[0])
+          uploadFile(e.target.files?.[0]).then(setImageURL)
+        }} 
+        /> */}
       </div>
       <button type="submit" className="py-2 px-4 bg-black text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75">
         Add Product
