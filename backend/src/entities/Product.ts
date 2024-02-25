@@ -20,7 +20,7 @@ export default class Product extends BaseEntity {
   @Field()
   picture: string;
 
-  @Column()
+  @Column('decimal', {precision: 10, scale:2})
   @Field()
   price: number;
 }

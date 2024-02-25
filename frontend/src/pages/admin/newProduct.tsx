@@ -2,9 +2,12 @@ import AdminLayout from "@/components/admin/AdminLayout";
 import { useCreateProductMutation } from "@/graphql/generated/schema";
 import { useRouter } from "next/router";
 import { FormEvent, useState } from "react";
+import axios from "axios";
 
 export default function NewProduct() {
-  const [createAd] = useCreateProductMutation();
+  const [createProduct] = useCreateProductMutation();
+  
+  const router = useRouter();
 
   const [imageURL, setImageURL] = useState("");
 
@@ -13,6 +16,13 @@ export default function NewProduct() {
     const formData = new FormData(e.target as HTMLFormElement);
     const formJSON: any = Object.fromEntries(formData.entries());
     formJSON.price = parseFloat(formJSON.price);
+
+    createProduct({ variables: { data:formJSON } })
+    .then((res) => {
+      router.push(`/products/${res.data?.createProduct.id}`);
+    })
+    .catch(console.error)
+
   };
 
   return (
