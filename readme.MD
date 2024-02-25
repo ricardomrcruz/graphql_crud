@@ -4,7 +4,7 @@ to run the backend dockerfile command: docker run -p 4001:4001 tgc-backend
 
 to clearDB, you need to enter the backend container and run the command: docker exec -it #containerID sh
 
-and then: docker exec <container ID>  npm run resetDB
+and then: docker exec <_containerID>  npm run resetDB
 
 to run the front_boilerplate command: docker run -p 3000:3000 tgc-frontend_boilerplate
 
