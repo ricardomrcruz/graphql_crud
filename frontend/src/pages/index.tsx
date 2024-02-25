@@ -4,7 +4,7 @@ import React from "react";
 export default function Home() {
   return (
     <Layout pageTitle="Wildmazon">
-      <h1 className="">Welcome To The Store</h1>
+      <h1 className="text-white">Welcome To The Store</h1>
     </Layout>
   );
 }

@@ -3,6 +3,7 @@ import Layout from "@/components/Layout";
 export default function About() {
   return (
     <Layout pageTitle="A Propos">
+      <main className="text-white">
       <h1>About djhuidsjghs</h1>
 
       <p>
@@ -10,7 +11,7 @@ export default function About() {
         porro dolorem, repellendus non provident consequatur. Numquam, corporis
         delectus? Temporibus, fsdfsdgdgfgdendus tenetur qufdghdfghdfhdfhdibusdam
         beatae aliquam soluta eveniet voluptate provident!fdsgdfgdfgdfhdfgghdf
-      </p>
+      </p></main>
     </Layout>
   );
 }

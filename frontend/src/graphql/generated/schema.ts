@@ -49,7 +49,13 @@ export type ProductInput = {
 
 export type Query = {
   __typename?: 'Query';
+  getProductById: Product;
   products: Array<Product>;
+};
+
+
+export type QueryGetProductByIdArgs = {
+  id: Scalars['Int'];
 };
 
 export type ProductsQueryVariables = Exact<{ [key: string]: never; }>;
@@ -63,6 +69,13 @@ export type CreateProductMutationVariables = Exact<{
 
 
 export type CreateProductMutation = { __typename?: 'Mutation', createProduct: { __typename?: 'Product', description: string, id: string, name: string, picture: string, price: number } };
+
+export type GetProductByIdQueryVariables = Exact<{
+  getProductByIdId: Scalars['Int'];
+}>;
+
+
+export type GetProductByIdQuery = { __typename?: 'Query', getProductById: { __typename?: 'Product', description: string, id: string, name: string, picture: string, price: number } };
 
 
 export const ProductsDocument = gql`
@@ -137,3 +150,42 @@ export function useCreateProductMutation(baseOptions?: Apollo.MutationHookOption
 export type CreateProductMutationHookResult = ReturnType<typeof useCreateProductMutation>;
 export type CreateProductMutationResult = Apollo.MutationResult<CreateProductMutation>;
 export type CreateProductMutationOptions = Apollo.BaseMutationOptions<CreateProductMutation, CreateProductMutationVariables>;
+export const GetProductByIdDocument = gql`
+    query GetProductById($getProductByIdId: Int!) {
+  getProductById(id: $getProductByIdId) {
+    description
+    id
+    name
+    picture
+    price
+  }
+}
+    `;
+
+/**
+ * __useGetProductByIdQuery__
+ *
+ * To run a query within a React component, call `useGetProductByIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetProductByIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetProductByIdQuery({
+ *   variables: {
+ *      getProductByIdId: // value for 'getProductByIdId'
+ *   },
+ * });
+ */
+export function useGetProductByIdQuery(baseOptions: Apollo.QueryHookOptions<GetProductByIdQuery, GetProductByIdQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetProductByIdQuery, GetProductByIdQueryVariables>(GetProductByIdDocument, options);
+      }
+export function useGetProductByIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetProductByIdQuery, GetProductByIdQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetProductByIdQuery, GetProductByIdQueryVariables>(GetProductByIdDocument, options);
+        }
+export type GetProductByIdQueryHookResult = ReturnType<typeof useGetProductByIdQuery>;
+export type GetProductByIdLazyQueryHookResult = ReturnType<typeof useGetProductByIdLazyQuery>;
+export type GetProductByIdQueryResult = Apollo.QueryResult<GetProductByIdQuery, GetProductByIdQueryVariables>;

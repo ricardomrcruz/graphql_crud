@@ -1,4 +1,4 @@
-import { Resolver, Query, Mutation, Arg } from "type-graphql";
+import { Resolver, Query, Mutation, Arg, Int } from "type-graphql";
 import Product from "../entities/Product";
 import { ProductInput } from "../entities/Product";
 import { GraphQLError } from "graphql/error";
@@ -8,6 +8,15 @@ class ProductResolver {
   @Query(() => [Product])
   async products() {
     return Product.find();
+  }
+
+  @Query(() => Product)
+  async getProductById(@Arg("id", ()=> Int) id: number){
+    const product = await Product.findOne({
+      where: { id }
+    })
+    if (!product) throw new GraphQLError("not found");
+    return product;
   }
 
   @Mutation(() => Product)
