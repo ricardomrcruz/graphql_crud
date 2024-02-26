@@ -1,5 +1,7 @@
 import React from "react";
 import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Layout({
   children,
@@ -17,13 +19,21 @@ export default function Layout({
         <div className="h-[60rem] w-full dark:bg-black bg-white  dark:bg-grid-white/[0.1] bg-grid-black/[0.2] relative flex items-center justify-center">
           {/* Radial gradient for the container to give a faded look */}
           <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_1%,black)]"></div>
-          <p className=" relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">
-            
-          </p>
+          <p className=" relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8"></p>
         </div>
-      </div><div className=" bg-black  ">
-      <div className="container mx-auto px-4 z-20 relative top-[-50rem] ">{children}</div></div>
-      
+      </div>
+      <div className=" bg-black  ">
+        <nav className="container mx-auto px-4 z-20 relative top-[-55rem]" >
+          <Link href="/" passHref>
+            
+              <Image src="/logo.png" alt="Logo" width={50} height={50} />
+          
+          </Link>
+        </nav>
+        <div className="container mx-auto px-4 z-20 relative top-[-47rem] ">
+          {children}
+        </div>
+      </div>
     </>
   );
 }
