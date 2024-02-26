@@ -23,11 +23,11 @@ export default function Layout({
         </div>
       </div>
       <div className=" bg-black  ">
-        <nav className="container mx-auto px-4 z-20 relative top-[-55rem]" >
-          <Link href="/" passHref>
-            
-              <Image src="/logo.png" alt="Logo" width={50} height={50} />
-          
+        <nav className="container mx-auto px-4 z-20 relative top-[-55rem] flex" >
+          <Link href="/" passHref className="flex">
+              <Image src="/logo2.png" alt="Logo" width={48} height={32} />
+              <h1 className="text-lg md:text-xl lg:text-2xl mt-4 ml-4 text-[#00E63B] ">Le Jardin De La Sorciere</h1>
+
           </Link>
         </nav>
         <div className="container mx-auto px-4 z-20 relative top-[-47rem] ">
