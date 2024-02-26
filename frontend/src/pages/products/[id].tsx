@@ -26,6 +26,7 @@ export default function ProductDetails() {
         </div>
         <p className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300">
           11% CBD • 1% Max THC
+          11% CBD • 1% Max THC
         </p>
         <div className="flex-1 max-h-[87%] w-full overflow-hidden relative mt-4 rounded-sm">
           <Image
@@ -63,6 +64,12 @@ export default function ProductDetails() {
             Sign up
           </button>
         </div>
+      </div>
+      
+      
+      
+      
+      
       </div>
       
       
