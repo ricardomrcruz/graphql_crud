@@ -8,6 +8,7 @@ import { GiFlowerPot } from "react-icons/gi";
 import { FaFontAwesomeFlag } from "react-icons/fa";
 import { FaBalanceScaleLeft } from "react-icons/fa";
 import { FaRegGrinTongueWink } from "react-icons/fa";
+import { FaCheck } from "react-icons/fa";
 
 export default function ProductDetails() {
   const router = useRouter();
@@ -72,7 +73,7 @@ export default function ProductDetails() {
                 </p>
               </div>
               <div className="flex flex-col justify-center w-4/6 p-4">
-                <p className="text-neutral-500 text-lg text-justify dark:text-neutral-300">
+                <p className="text-neutral-500 text-lg text-justify dark:text-neutral-300 leading-snug">
                   Découvrez notre Fleur de CBD Mandarine 🍊, de première qualité
                   et provenance italienne, riche en terpènes primaires tels que
                   le b-Caryophyllène, le Myrcène, l'Humulène, le b-Pinène, et
@@ -89,14 +90,28 @@ export default function ProductDetails() {
               </div>
             </div>
           </div>
-          <div className="inter-var mt-7 bg-gray-50 relative dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[50rem]  rounded-sm p-5 border">
-            <div className=" flex justify-between items-center mt-20">
-              <button className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white">
-                Try now →
-              </button>
-              <button className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold">
-                Sign up
-              </button>
+          <div className="inter-var mt-2 bg-gray-50 relative dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[50rem] h-[11rem] rounded-sm p-5 border flex flex-col justify-between">
+            <div className="flex flex-1 justify-between">
+              <div className="flex flex-col justify-between w-1/2 mr-4">
+                <button className="p-[5px] w-full bg-green-500 rounded-sm text-xl font-normal dark:text-white">
+                  2gr € 18.99
+                </button>
+                <button className="p-[5px] w-full bg-green-500 rounded-sm text-xl font-normal dark:text-white">
+                  5gr € 34.99
+                </button>
+                <button className="p-[5px] w-full bg-green-500 rounded-sm text-xl font-normal dark:text-white">
+                  10gr € 56.99
+                </button>
+              </div>
+              <div className="w-1/2 ml-4 flex flex-col justify-end">
+                <p></p>
+                <div className="flex mb-2">
+                <p className="flex text-xl"><FaCheck className="mr-2" />  In Stock</p>
+                </div>
+                <button className="w-full py-4 rounded-sm bg-black dark:bg-gray-100 dark:text-black text-white text-2xl font-bold">
+                  AJOUTE AU PANIER
+                </button>
+              </div>
             </div>
           </div>
         </div>
