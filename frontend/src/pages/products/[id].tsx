@@ -92,24 +92,36 @@ export default function ProductDetails() {
               </div>
             </div>
           </div>
-          <div className="inter-var mt-2 bg-gray-50 relative dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[50rem] h-[11rem] rounded-sm p-5 border flex flex-col justify-between">
+          <div className="inter-var mt-2 bg-gray-50 relative  dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[50rem] h-[11rem] rounded-sm p-5 border flex flex-col justify-between">
             <div className="flex flex-1 justify-between">
               <div className="flex flex-col justify-between w-1/2 mr-4">
-                <button onClick={()=>setTotal( 18.99)}  className="p-[5px] w-full bg-green-500 rounded-sm text-xl font-normal dark:text-white">
+                <button
+                  onClick={() => setTotal(18.99)}
+                  className="p-[5px] w-full bg-green-500 rounded-sm text-xl font-normal dark:text-white  focus:ring focus:ring-green-200"
+                >
                   2gr € 18.99
                 </button>
-                <button onClick={()=>setTotal(34.99)}  className="p-[5px] w-full bg-green-500 rounded-sm text-xl font-normal dark:text-white">
+                <button
+                  onClick={() => setTotal(34.99)}
+                  className="p-[5px] w-full bg-green-500 rounded-sm text-xl font-normal dark:text-white focus:ring focus:ring-green-200"
+                >
                   5gr € 34.99
                 </button>
-                <button onClick={()=>setTotal( 56.99)}  className="p-[5px] w-full bg-green-500 rounded-sm text-xl font-normal dark:text-white">
+                <button
+                  onClick={() => setTotal(56.99)}
+                  className="p-[5px] w-full bg-green-500 rounded-sm text-xl font-normal dark:text-white focus:ring focus:ring-green-200"
+                >
                   10gr € 56.99
                 </button>
               </div>
               <div className="w-1/2 ml-4 flex flex-col justify-end">
                 <div className="justify-end w-full text-right text-3xl ">
-                <p className="font-bold">€  {total}</p></div>
+                  <p className="font-bold">€ {total}</p>
+                </div>
                 <div className="flex mb-2">
-                <p className="flex text-xl"><FaCheck className="mr-2" />  In Stock</p>
+                  <p className="flex text-xl">
+                    <FaCheck className="mr-2" /> In Stock
+                  </p>
                 </div>
                 <button className="w-full py-4 rounded-sm bg-black dark:bg-gray-100 dark:text-black text-white text-2xl font-bold">
                   AJOUTE AU PANIER
@@ -119,6 +131,7 @@ export default function ProductDetails() {
           </div>
         </div>
       </div>
+      
     </Layout>
   );
 }
