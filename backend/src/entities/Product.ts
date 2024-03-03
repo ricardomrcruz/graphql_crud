@@ -18,6 +18,22 @@ export default class Product extends BaseEntity {
 
   @Column()
   @Field()
+  straintype: string;
+
+  @Column()
+  @Field()
+  growtype: string;
+
+  @Column()
+  @Field()
+  origin: string;
+
+  @Column()
+  @Field()
+  potency: string;
+
+  @Column()
+  @Field()
   picture: string;
 
   @Column('decimal', {precision: 10, scale:2})
