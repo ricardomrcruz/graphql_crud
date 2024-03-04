@@ -39,34 +39,33 @@ async function main() {
     picture: "https://m.media-amazon.com/images/I/61mpMH5TzkL._AC_SL1500_.jpg",
     price: 29.99,
     straintype: "Cannabis Sativa",
-    growtype:"Indoor",
-    origin:"Nord Italie", 
+    growtype: "Indoor",
+    origin: "Nord Italie",
     potency: 10,
-    
   });
-  
+
   // Product 2
-const product2 = Product.create({
-  name: "Blue Dream Essence",
-  description: `Explorez la quintessence de Blue Dream 🌌, une fleur de CBD de haute qualité
+  const product2 = Product.create({
+    name: "Blue Dream Essence",
+    description: `Explorez la quintessence de Blue Dream 🌌, une fleur de CBD de haute qualité
   avec une origine californienne. Riche en terpènes comme le Limonène, l'Alpha-Pinène,
   et le Linalool, cette variété renommée 🏆 offre une expérience euphorisante, favorisant
   la créativité et le bien-être. Son profil gustatif combine des notes de baies fraîches
   et de pin, offrant une évasion aromatique unique. Les bourgeons sont d'un bleu-vert
   saisissant, agrémentés de pistils orange et de trichomes cristallins, évoquant une
   aventure céleste. Vivez un moment de détente pur et inspirant à chaque utilisation 😊.`,
-  picture: "https://m.media-amazon.com/images/I/61mpMH5TzkL._AC_SL1500_.jpg",
-  price: 34.99,
-  straintype: "Hybrid",
-  growtype: "Greenhouse",
-  origin: "Californie, USA",
-  potency: 12,
-});
+    picture: "https://m.media-amazon.com/images/I/61mpMH5TzkL._AC_SL1500_.jpg",
+    price: 34.99,
+    straintype: "Hybrid",
+    growtype: "Greenhouse",
+    origin: "Californie, USA",
+    potency: 12,
+  });
 
-// Product 3
-const product3 = Product.create({
-  name: "Amnesia Haze Lumière",
-  description: `Plongez dans l'oubli avec notre Amnesia Haze Lumière ☀, une fleur de CBD
+  // Product 3
+  const product3 = Product.create({
+    name: "Amnesia Haze Lumière",
+    description: `Plongez dans l'oubli avec notre Amnesia Haze Lumière ☀, une fleur de CBD
   légendaire d'origine néerlandaise. Cette variété, saturée en terpènes comme le
   Myrcène, le Bêta-Pinène et le Terpinolène, promet une montée vivifiante et un
   soulagement mental. Son profil de saveurs est un mélange complexe d'agrumes, de
@@ -75,18 +74,18 @@ const product3 = Product.create({
   orange et enveloppés dans une couche de résine, reflétant la puissance et la
   beauté de la nature. Embarquez pour un voyage revitalisant, où chaque moment est
   une découverte 😊.`,
-  picture: "https://m.media-amazon.com/images/I/61mpMH5TzkL._AC_SL1500_.jpg",
-  price: 32.99,
-  straintype: "Sativa Dominant Hybrid",
-  growtype: "Outdoor",
-  origin: "Pays-Bas",
-  potency: 15,
-});
+    picture: "https://m.media-amazon.com/images/I/61mpMH5TzkL._AC_SL1500_.jpg",
+    price: 32.99,
+    straintype: "Sativa Dominant Hybrid",
+    growtype: "Outdoor",
+    origin: "Pays-Bas",
+    potency: 15,
+  });
 
-// Product 4
-const product4 = Product.create({
-  name: "Northern Lights Magique",
-  description: `Découvrez la magie des aurores boréales avec notre Northern Lights Magique 🌠,
+  // Product 4
+  const product4 = Product.create({
+    name: "Northern Lights Magique",
+    description: `Découvrez la magie des aurores boréales avec notre Northern Lights Magique 🌠,
   une fleur de CBD de premier choix venant directement du cœur de l'Afghanistan. Elle est
   enrichie de terpènes comme le Caryophyllène, l'Humulène et le Nerolidol, offrant un
   effet apaisant profond et une relaxation musculaire. Avec son profil gustatif de
@@ -95,23 +94,18 @@ const product4 = Product.create({
   de pistils orange et couverts de trichomes scintillants, capturant l'essence
   mystique des nuits polaires. Profitez d'une tranquillité inégalée, parfait pour une
   fin de journée relaxante 😊.`,
-  picture: "https://m.media-amazon.com/images/I/61mpMH5TzkL._AC_SL1500_.jpg",
-  price: 37.99,
-  straintype: "Indica",
-  growtype: "Hydroponic",
-  origin: "Afghanistan",
-  potency: 18,
-});
+    picture: "https://m.media-amazon.com/images/I/61mpMH5TzkL._AC_SL1500_.jpg",
+    price: 37.99,
+    straintype: "Indica",
+    growtype: "Hydroponic",
+    origin: "Afghanistan",
+    potency: 18,
+  });
 
-  
-  
-  
   await product1.save();
   await product2.save();
   await product3.save();
   await product4.save();
-  
-  
 
   console.log("done");
 }

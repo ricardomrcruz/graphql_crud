@@ -5,5 +5,9 @@ query GetProductById($getProductByIdId: Int!) {
     name
     picture
     price
+    growtype
+    origin
+    potency
+    straintype
   }
 }

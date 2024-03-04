@@ -21,6 +21,10 @@ export default function ProductDetails() {
     variables: { getProductByIdId: parseInt(id as string) },
     skip: typeof id === "undefined",
   });
+
+  
+  
+
   return (
     <Layout pageTitle="A Propos">
       <div className="flex mt-[-50px]">

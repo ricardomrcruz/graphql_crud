@@ -34,17 +34,25 @@ export type MutationDeleteProductArgs = {
 export type Product = {
   __typename?: 'Product';
   description: Scalars['String'];
+  growtype: Scalars['String'];
   id: Scalars['ID'];
   name: Scalars['String'];
+  origin: Scalars['String'];
   picture: Scalars['String'];
+  potency: Scalars['Float'];
   price: Scalars['Float'];
+  straintype: Scalars['String'];
 };
 
 export type ProductInput = {
   description: Scalars['String'];
+  growtype: Scalars['String'];
   name: Scalars['String'];
+  origin: Scalars['String'];
   picture: Scalars['String'];
+  potency: Scalars['Float'];
   price: Scalars['Float'];
+  straintype: Scalars['String'];
 };
 
 export type Query = {
@@ -75,7 +83,7 @@ export type GetProductByIdQueryVariables = Exact<{
 }>;
 
 
-export type GetProductByIdQuery = { __typename?: 'Query', getProductById: { __typename?: 'Product', description: string, id: string, name: string, picture: string, price: number } };
+export type GetProductByIdQuery = { __typename?: 'Query', getProductById: { __typename?: 'Product', description: string, id: string, name: string, picture: string, price: number, growtype: string, origin: string, potency: number, straintype: string } };
 
 
 export const ProductsDocument = gql`
@@ -158,6 +166,10 @@ export const GetProductByIdDocument = gql`
     name
     picture
     price
+    growtype
+    origin
+    potency
+    straintype
   }
 }
     `;
