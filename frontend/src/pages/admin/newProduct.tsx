@@ -27,7 +27,7 @@ export default function NewProduct() {
 
   return (
     <AdminLayout title="Admin - TGC">
-      <div className="w-6/12 mt-20 ml-20 p-10 bg-[#161B21] bg-opacity-90 backdrop-filter backdrop-blur-lg rounded-md border border-gray-700 shadow-2xl">
+      <div className="w-6/12 ml-20 p-10 bg-[#161B21] bg-opacity-90 backdrop-filter backdrop-blur-lg rounded-md border border-gray-700 shadow-2xl">
         <h2 className="text-lg text-gray-200 mb-6">Add New Product</h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -62,6 +62,22 @@ export default function NewProduct() {
               placeholder="Playstation 3"
               className="mt-1 block w-full px-3 py-2 border text-gray-200 border-gray-700 bg-[#090B0D] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-purple-700"
             ></textarea>
+          </div>
+          <div>
+            <label
+              htmlFor="name"
+              className="block  font-medium text-md text-gray-200"
+            >
+              StrainType
+            </label>
+            <input
+              required
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Playstation 3"
+              className="mt-1 block w-full px-3 py-2 border text-gray-200 border-gray-700 bg-[#090B0D] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-purple-700"
+            />
           </div>
           <div>
             <label

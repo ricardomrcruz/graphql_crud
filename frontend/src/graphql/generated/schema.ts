@@ -42,6 +42,7 @@ export type Product = {
   potency: Scalars['Float'];
   price: Scalars['Float'];
   straintype: Scalars['String'];
+  taste: Scalars['String'];
 };
 
 export type ProductInput = {
@@ -53,6 +54,7 @@ export type ProductInput = {
   potency: Scalars['Float'];
   price: Scalars['Float'];
   straintype: Scalars['String'];
+  taste: Scalars['String'];
 };
 
 export type Query = {
@@ -83,7 +85,7 @@ export type GetProductByIdQueryVariables = Exact<{
 }>;
 
 
-export type GetProductByIdQuery = { __typename?: 'Query', getProductById: { __typename?: 'Product', description: string, id: string, name: string, picture: string, price: number, growtype: string, origin: string, potency: number, straintype: string } };
+export type GetProductByIdQuery = { __typename?: 'Query', getProductById: { __typename?: 'Product', description: string, id: string, name: string, picture: string, price: number, growtype: string, origin: string, potency: number, straintype: string, taste: string } };
 
 
 export const ProductsDocument = gql`
@@ -170,6 +172,7 @@ export const GetProductByIdDocument = gql`
     origin
     potency
     straintype
+    taste
   }
 }
     `;

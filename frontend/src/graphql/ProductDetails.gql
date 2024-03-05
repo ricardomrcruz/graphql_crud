@@ -9,5 +9,6 @@ query GetProductById($getProductByIdId: Int!) {
     origin
     potency
     straintype
+    taste
   }
 }

@@ -31,6 +31,10 @@ export default class Product extends BaseEntity {
   @Column()
   @Field()
   potency: number;
+  
+  @Column()
+  @Field()
+  taste: string;
 
   @Column()
   @Field()
@@ -60,6 +64,9 @@ export class ProductInput {
 
   @Field()
   growtype: string;
+
+  @Field()
+  taste: string;
 
   @Field()
   origin: string;
