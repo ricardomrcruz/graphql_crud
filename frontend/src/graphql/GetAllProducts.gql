@@ -1,0 +1,14 @@
+query GetAllProducts {
+  products {
+    description
+    growtype
+    id
+    name
+    origin
+    picture
+    potency
+    price
+    straintype
+    taste
+  }
+}

@@ -6,7 +6,7 @@ import axios from "axios";
 
 export default function NewProduct() {
   const [createProduct] = useCreateProductMutation();
-  
+
   const router = useRouter();
 
   const [imageURL, setImageURL] = useState("");
@@ -17,12 +17,11 @@ export default function NewProduct() {
     const formJSON: any = Object.fromEntries(formData.entries());
     formJSON.price = parseFloat(formJSON.price);
 
-    createProduct({ variables: { data:formJSON } })
-    .then((res) => {
-      router.push(`/products/${res.data?.createProduct.id}`);
-    })
-    .catch(console.error)
-
+    createProduct({ variables: { data: formJSON } })
+      .then((res) => {
+        router.push(`/products/${res.data?.createProduct.id}`);
+      })
+      .catch(console.error);
   };
 
   return (
@@ -63,38 +62,75 @@ export default function NewProduct() {
               className="mt-1 block w-full px-3 py-2 border text-gray-200 border-gray-700 bg-[#090B0D] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-purple-700"
             ></textarea>
           </div>
-          <div>
-            <label
-              htmlFor="name"
-              className="block  font-medium text-md text-gray-200"
-            >
-              StrainType
-            </label>
-            <input
-              required
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Playstation 3"
-              className="mt-1 block w-full px-3 py-2 border text-gray-200 border-gray-700 bg-[#090B0D] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-purple-700"
-            />
+          <div className="flex justify-between">
+            <div>
+              <label
+                htmlFor="name"
+                className="block  font-medium text-md text-gray-200"
+              >
+                Strain Type
+              </label>
+              <input
+                required
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Playstation 3"
+                className="mt-1 block w-full px-3 py-2 border text-gray-200 border-gray-700 bg-[#090B0D] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-purple-700"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="name"
+                className="block  font-medium text-md text-gray-200"
+              >
+                Grow Type
+              </label>
+              <input
+                required
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Playstation 3"
+                className="mt-1 block w-full px-3 py-2 border text-gray-200 border-gray-700 bg-[#090B0D] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-purple-700"
+              />
+            </div>
           </div>
-          <div>
-            <label
-              htmlFor="price"
-              className="block  font-medium text-md text-gray-200"
-            >
-              Price
-            </label>
-            <input
-              required
-              type="number"
-              name="price"
-              id="price"
-              min={0}
-              placeholder="349,99"
-              className="mt-1 block w-full px-3 py-2 border text-gray-200 border-gray-700 bg-[#090B0D] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-purple-700"
-            />
+          <div className="flex justify-between">
+            <div>
+              <label
+                htmlFor="price"
+                className="block  font-medium text-md text-gray-200"
+              >
+                Price
+              </label>
+              <input
+                required
+                type="number"
+                name="price"
+                id="price"
+                min={0}
+                placeholder="349,99"
+                className="mt-1 block w-full px-3 py-2 border text-gray-200 border-gray-700 bg-[#090B0D] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-purple-700"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="price"
+                className="block  font-medium text-md text-gray-200"
+              >
+                Percentage
+              </label>
+              <input
+                required
+                type="number"
+                name="price"
+                id="price"
+                min={0}
+                placeholder="349,99"
+                className="mt-1 block w-full px-3 py-2 border text-gray-200 border-gray-700 bg-[#090B0D] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-purple-700"
+              />
+            </div>
           </div>
           <div>
             <label

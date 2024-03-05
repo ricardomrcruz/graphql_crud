@@ -13,7 +13,6 @@ import { FaCheck } from "react-icons/fa";
 
 export default function ProductDetails() {
   const router = useRouter();
-  
 
   const { id } = router.query;
 
@@ -23,29 +22,21 @@ export default function ProductDetails() {
   });
 
   const product = data?.getProductById;
-  
+
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    if (product && typeof product.price === "number" ) {
-      setTotal(product.price)}
-    
-    
-    }, [product]
-  );
+    if (product && typeof product.price === "number") {
+      setTotal(product.price);
+    }
+  }, [product]);
 
   const handleSetTotal = (multiplier: number) => {
-    if (product && typeof product.price === 'number') {
-     
-      setTotal(product.price*multiplier);
-    
+    if (product && typeof product.price === "number") {
+      const result = (product.price * multiplier).toFixed(2);
+      setTotal(product.price * multiplier);
     }
-  }
-
-  
-  
-
-
+  };
 
   return (
     <Layout pageTitle="A Propos">
@@ -56,7 +47,6 @@ export default function ProductDetails() {
           <div className="inter-var bg-gray-50 relative dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[50rem] h-[40rem] rounded-xl p-10 border">
             <div className="text-2xl font-bold text-neutral-600 dark:text-white">
               {product.name}
-             
             </div>
             <p className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300">
               {product.potency}% CBD • 1% Max THC
@@ -76,29 +66,27 @@ export default function ProductDetails() {
           </div>
 
           <div className="mx-10 inter-var bg-gray-50 relative dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-full h-[40rem] rounded-xl p-10 border">
-            {/* <div className="text-xl font-bold text-neutral-600 dark:text-white">
-            Mandarine Fleur CBD
-          </div>
-          <p className="text-neutral-500 text-md max-w-sm mt-2 dark:text-neutral-300">
-            11% CBD • 1% Max THC
-          </p> */}
             <div>
               <div className="flex flex-row flex-nowrap m-2 bg-gray-50 dark:bg-black rounded-md">
                 <div className="flex flex-col justify-between w-2/6 p-6">
                   <p className="text-neutral-500 py-1 text-lg dark:text-neutral-300 flex items-center">
-                    <LiaCannabisSolid className="pr-2 text-6xl" /> {product.straintype}
+                    <LiaCannabisSolid className="pr-2 text-6xl" />{" "}
+                    {product.straintype}
                   </p>
                   <p className="text-neutral-500 py-1 text-lg dark:text-neutral-300 flex items-center">
-                    <LiaCannabisSolid className="pr-2 text-5xl" /> {product.taste}
+                    <LiaCannabisSolid className="pr-2 text-5xl" />{" "}
+                    {product.taste}
                   </p>
                   <p className="text-neutral-500 py-1 text-lg dark:text-neutral-300 flex items-center">
                     <GiFlowerPot className="pr-2 text-6xl" /> {product.growtype}
                   </p>
                   <p className="text-neutral-500 py-1 text-lg dark:text-neutral-300 flex items-center">
-                    <FaFontAwesomeFlag className="pr-2 mr-1 text-5xl" /> {product.origin}
+                    <FaFontAwesomeFlag className="pr-2 mr-1 text-5xl" />{" "}
+                    {product.origin}
                   </p>
                   <p className="text-neutral-500 py-1 text-lg dark:text-neutral-300 flex items-center">
-                    <FaBalanceScaleLeft className="pr-2 mr-1 text-5xl" /> {product.potency}
+                    <FaBalanceScaleLeft className="pr-2 mr-1 text-5xl" />{" "}
+                    {product.potency}
                     CBD • 1% Max THC
                   </p>
                 </div>
@@ -116,24 +104,29 @@ export default function ProductDetails() {
                     onClick={() => handleSetTotal(1)}
                     className="p-[5px] w-full bg-green-500 rounded-sm text-xl font-normal dark:text-white focus:ring focus:ring-green-200"
                   >
-                    2gr € {product ? (product.price*1).toFixed(2) : 'Chargement...'}
+                    2gr €{" "}
+                    {product ? (product.price * 1).toFixed(2) : "Chargement..."}
                   </button>
                   <button
                     onClick={() => handleSetTotal(2)}
                     className="p-[5px] w-full bg-green-500 rounded-sm text-xl font-normal dark:text-white focus:ring focus:ring-green-200"
                   >
-                    5gr € {product ? (product.price*2).toFixed(2) : 'Chargement...'}
+                    5gr €{" "}
+                    {product ? (product.price * 2).toFixed(2) : "Chargement..."}
                   </button>
                   <button
                     onClick={() => handleSetTotal(3.5)}
                     className="p-[5px] w-full bg-green-500 rounded-sm text-xl font-normal dark:text-white focus:ring focus:ring-green-200"
                   >
-                    10gr € {product ? (product.price*3.5).toFixed(2) : 'Chargemen...'}
+                    10gr €{" "}
+                    {product
+                      ? (product.price * 3.5).toFixed(2)
+                      : "Chargement..."}
                   </button>
                 </div>
                 <div className="w-1/2 ml-4 flex flex-col justify-end">
                   <div className="justify-end w-full text-right text-3xl ">
-                    <p className="font-bold">€ {total}</p>
+                    <p className="font-bold">€ {total.toFixed(2)}</p>
                   </div>
                   <div className="flex mb-2">
                     <p className="flex text-xl">
