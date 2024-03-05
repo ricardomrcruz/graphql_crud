@@ -22,22 +22,24 @@ export default function ProductDetails() {
     skip: typeof id === "undefined",
   });
 
-  
+  const product = data?.getProductById;
   
 
   return (
-    <Layout pageTitle="A Propos">
+    <Layout pageTitle="A Propos">{typeof  product === "undefined" ? ("Produit Plus Disponible...") : ( 
       <div className="flex mt-[-50px]">
+        
         <div className="inter-var bg-gray-50 relative dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[50rem] h-[40rem] rounded-xl p-10 border">
           <div className="text-2xl font-bold text-neutral-600 dark:text-white">
-            Mandarine Fleur CBD
+            {product.name}
+            {/* Mandarine Fleur CBD */}
           </div>
           <p className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300">
             11% CBD • 1% Max THC
           </p>
           <div className="flex-1 max-h-[87%] w-full overflow-hidden relative mt-4 rounded-sm">
             <Image
-              src="/mandarine.jpg"
+              src={product.picture}
               layout="responsive"
               width={16}
               height={9}
@@ -133,9 +135,10 @@ export default function ProductDetails() {
               </div>
             </div>
           </div>
+          
         </div>
       </div>
-      
+      )}
     </Layout>
   );
 }

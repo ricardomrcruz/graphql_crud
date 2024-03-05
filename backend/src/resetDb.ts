@@ -36,7 +36,7 @@ async function main() {
     pistils orange vifs et ses éclats de pourpre occasionnels
     reflètent les couleurs vibrantes de la médina. Profitez d'une
     expérience revigorante à tout moment 😊.`,
-    picture: "https://m.media-amazon.com/images/I/61mpMH5TzkL._AC_SL1500_.jpg",
+    picture: "/mandarine.jpg",
     price: 29.99,
     straintype: "Cannabis Sativa",
     growtype: "Indoor",
@@ -54,7 +54,7 @@ async function main() {
   et de pin, offrant une évasion aromatique unique. Les bourgeons sont d'un bleu-vert
   saisissant, agrémentés de pistils orange et de trichomes cristallins, évoquant une
   aventure céleste. Vivez un moment de détente pur et inspirant à chaque utilisation 😊.`,
-    picture: "https://m.media-amazon.com/images/I/61mpMH5TzkL._AC_SL1500_.jpg",
+    picture: "/bluedream.jpg",
     price: 34.99,
     straintype: "Hybrid",
     growtype: "Greenhouse",
