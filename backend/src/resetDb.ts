@@ -47,7 +47,7 @@ async function main() {
 
   // Product 2
   const product2 = Product.create({
-    name: "Blue Dream Essence",
+    name: "Blue Dream Essence Fleur CBD",
     description: `Explorez la quintessence de Blue Dream 🌌, une fleur de CBD de haute qualité
 avec une origine californienne. Riche en terpènes comme le Limonène, l'Alpha-Pinène,
 et le Linalool, cette variété renommée 🏆 offre une expérience euphorisante, favorisant
@@ -66,7 +66,7 @@ aventure céleste. Vivez un moment de détente pur et inspirant à chaque utilis
 
   // Product 3
   const product3 = Product.create({
-    name: "Amnesia Haze Lumière",
+    name: "Amnesia Haze Lumière Fleur CBD",
     description: `Plongez dans l'oubli avec notre Amnesia Haze Lumière ☀, une fleur de CBD
 légendaire d'origine néerlandaise. Cette variété, saturée en terpènes comme le
 Myrcène, le Bêta-Pinène et le Terpinolène, promet une montée vivifiante et un
@@ -87,7 +87,7 @@ une découverte 😊.`,
 
   // Product 4
   const product4 = Product.create({
-    name: "Northern Lights Magique",
+    name: "Northern Lights Magique Fleur CBD",
     description: `Découvrez la magie des aurores boréales avec notre Northern Lights Magique 🌠,
 une fleur de CBD de premier choix venant directement du cœur de l'Afghanistan. Elle est
 enrichie de terpènes comme le Caryophyllène, l'Humulène et le Nerolidol, offrant un

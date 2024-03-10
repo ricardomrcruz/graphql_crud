@@ -13,7 +13,7 @@ export default function Layout({
   return (
     <>
       <Head>
-        <title> Wildmazon - {pageTitle} </title>
+        <title> CBD SHOP - {pageTitle} </title>
       </Head>
       <div className="min-h-screen bg-black ">
         <div className="h-[60rem] w-full dark:bg-black bg-white  dark:bg-grid-white/[0.1] bg-grid-black/[0.2] relative flex items-center justify-center">
@@ -23,12 +23,9 @@ export default function Layout({
         </div>
       </div>
       <div className=" bg-black  ">
-        <nav className="container mx-auto px-4 z-20 relative top-[-55rem] flex">
+        <nav className="container mx-auto  z-20 relative top-[-55rem] flex">
           <Link href="/" passHref className="flex">
-            <Image src="/logo2.png" alt="Logo" width={48} height={32} />
-            <h1 className="text-lg md:text-xl lg:text-2xl mt-4 ml-4 text-[#00E63B] ">
-              Le Jardin De La Sorciere
-            </h1>
+            <Image src="/logo1.png" alt="Logo" width={350} height={50} />
           </Link>
         </nav>
         <div className="container mx-auto px-4 z-20 relative top-[-47rem] ">

@@ -86,8 +86,7 @@ export default function ProductDetails() {
                   </p>
                   <p className="text-neutral-500 py-1 text-lg dark:text-neutral-300 flex items-center">
                     <FaBalanceScaleLeft className="pr-2 mr-1 text-5xl" />{" "}
-                    {product.potency}
-                    CBD • 1% Max THC
+                    {product.potency}% CBD • 1% Max THC
                   </p>
                 </div>
                 <div className="flex flex-col justify-center w-4/6 p-4">
