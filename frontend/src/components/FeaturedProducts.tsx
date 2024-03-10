@@ -11,9 +11,9 @@ export default function FeaturedProducts() {
   const products = data?.products || [];
 
   return (
-    <div>
-      <div className="text-white text-3xl  w-full text-center justify-center my-10">
-        <h1 className=""></h1>
+    <div className="pt-24">
+      <div className="text-white text-3xl  w-full text-center justify-center  ">
+        <h1 className="text-left my-10">Meilleures Ventes Fleur CBD</h1>
       </div>
       <div className="  items-center grid grid-cols-4">
         {products.map((product) => (
