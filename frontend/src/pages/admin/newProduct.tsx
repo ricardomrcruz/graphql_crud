@@ -26,10 +26,12 @@ export default function NewProduct() {
 
   return (
     <AdminLayout title="Admin - TGC">
-      <div className="w-6/12 ml-20 p-10 bg-[#161B21] bg-opacity-90 backdrop-filter backdrop-blur-lg rounded-md border border-gray-700 shadow-2xl">
+      <div className="w-10/12 ml-20 p-10 bg-[#161B21] bg-opacity-90 backdrop-filter backdrop-blur-lg rounded-md border border-gray-700 shadow-2xl">
         <h2 className="text-lg text-gray-200 mb-6">Add New Product</h2>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4 w-full">
+          <div className="w-8/12">
+
           <div>
             <label
               htmlFor="name"
@@ -62,10 +64,26 @@ export default function NewProduct() {
               className="mt-1 block w-full px-3 py-2 border text-gray-200 border-gray-700 bg-[#090B0D] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-purple-700"
             ></textarea>
           </div>
+          <div>
+            <label
+              htmlFor="name"
+              className="block  font-medium text-md text-gray-200"
+            >
+              Name
+            </label>
+            <input
+              required
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Playstation 3"
+              className="mt-1 block w-full px-3 py-2 border text-gray-200 border-gray-700 bg-[#090B0D] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-purple-700"
+            />
+          </div>
           <div className="flex justify-between">
             <div>
               <label
-                htmlFor="name"
+                htmlFor="straintype"
                 className="block  font-medium text-md text-gray-200"
               >
                 Strain Type
@@ -81,7 +99,7 @@ export default function NewProduct() {
             </div>
             <div>
               <label
-                htmlFor="name"
+                htmlFor="growtype"
                 className="block  font-medium text-md text-gray-200"
               >
                 Grow Type
@@ -119,7 +137,7 @@ export default function NewProduct() {
                 htmlFor="price"
                 className="block  font-medium text-md text-gray-200"
               >
-                Percentage
+                Potency
               </label>
               <input
                 required
@@ -153,7 +171,9 @@ export default function NewProduct() {
           >
             Add Product
           </button>
+          </div>
         </form>
+        
       </div>
     </AdminLayout>
   );
