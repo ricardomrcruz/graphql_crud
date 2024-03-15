@@ -83,7 +83,7 @@ export type CreateProductMutationVariables = Exact<{
 }>;
 
 
-export type CreateProductMutation = { __typename?: 'Mutation', createProduct: { __typename?: 'Product', description: string, id: string, name: string, picture: string, price: number } };
+export type CreateProductMutation = { __typename?: 'Mutation', createProduct: { __typename?: 'Product', description: string, growtype: string, id: string, name: string, origin: string, picture: string, potency: number, price: number, straintype: string, taste: string } };
 
 export type GetProductByIdQueryVariables = Exact<{
   getProductByIdId: Scalars['Int'];
@@ -175,10 +175,15 @@ export const CreateProductDocument = gql`
     mutation CreateProduct($data: ProductInput!) {
   createProduct(data: $data) {
     description
+    growtype
     id
     name
+    origin
     picture
+    potency
     price
+    straintype
+    taste
   }
 }
     `;
@@ -222,7 +227,8 @@ export const GetProductByIdDocument = gql`
     straintype
     taste
   }
-} `;
+}
+    `;
 
 /**
  * __useGetProductByIdQuery__
