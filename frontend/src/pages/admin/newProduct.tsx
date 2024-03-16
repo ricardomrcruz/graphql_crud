@@ -181,7 +181,7 @@ export default function NewProduct() {
 
 
 
-            <div>
+            {/* <div>
               <label
                 htmlFor="picture"
                 className="block  font-medium text-md text-gray-200"
@@ -195,7 +195,7 @@ export default function NewProduct() {
                 placeholder="https://imageshack.com/zoot.png"
                 className="mt-1 block w-full px-3 py-2 border  border-gray-700 bg-[#090B0D] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-purple-700"
               />
-            </div>
+            </div> */}
 
 
 
