@@ -3,12 +3,17 @@ import type { AppProps } from "next/app";
 import dynamic from "next/dynamic";
 import { ApolloProvider } from "@apollo/client";
 import client from "@/graphql/client";
+import { EdgeStoreProvider } from '../lib/edgestore';
+
+
 
 function App({ Component, pageProps }: AppProps) {
     return (
-        <ApolloProvider client={client}>
-            <Component {...pageProps} />
-        </ApolloProvider>
+        <EdgeStoreProvider>
+            <ApolloProvider client={client}>
+             <Component {...pageProps} />
+            </ApolloProvider>
+        </EdgeStoreProvider>
     );
 }
 
