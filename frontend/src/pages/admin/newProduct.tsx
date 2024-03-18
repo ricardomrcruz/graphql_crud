@@ -3,6 +3,8 @@ import { useCreateProductMutation } from "@/graphql/generated/schema";
 import { useRouter } from "next/router";
 import { FormEvent, useState } from "react";
 import axios from "axios";
+import { useEdgeStore } from "@/lib/edgestore";
+import Link from 'next/link';
 
 export default function NewProduct() {
   const [createProduct] = useCreateProductMutation();
@@ -10,6 +12,15 @@ export default function NewProduct() {
   const router = useRouter();
 
   const [imageURL, setImageURL] = useState("");
+  
+
+  const [file, setFile] = useState<File>();
+  const [urls, setUrls] = useState<{
+    url: string;
+    thumbnailUrl: string | null;
+  }>();
+
+  const {edgestore} = useEdgeStore();
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -208,14 +219,34 @@ export default function NewProduct() {
               </label>
               <input
                 type="file"
+                onChange={(e)=> {
+                setFile(e.target.files?.[0]);}}
+                
                 accept="image/"
                 name="picture"
                 id="picture"
-                placeholder="https://imageshack.com/zoot.png"
+                
                 className="mt-1 block w-full px-3 py-2 border  border-gray-700 bg-[#090B0D] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-purple-700"
               />
             </div>
+            <button  type="submit"
+                className=" py-2 px-4 bg-black text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75"
+                onClick={async() => {
+                  if(file){
+                    const res = await edgestore.publicFiles.upload({ file });
 
+                    setUrls({
+                      url:res.url, 
+                      thumbnailUrl:res.thumbnailUrl,
+                    })
+                  }
+                }}
+                
+                >lolololo
+
+            </button>
+            {urls?.url && <Link href={urls.url} target="_blank">URL</Link>}
+            {urls?.thumbnailUrl && <Link href={urls.thumbnailUrl} target="_blank">THUMBNAILURL</Link>}
 
 
 

@@ -7,7 +7,7 @@ const es = initEdgeStore.create();
  * This is the main router for the edgestore buckets.
  */
 const edgeStoreRouter = es.router({
-  publicFiles: es.fileBucket(),
+  publicFiles: es.imageBucket(),
 });
 
 export default createEdgeStoreNextHandler({
