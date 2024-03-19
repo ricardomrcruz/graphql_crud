@@ -18,6 +18,7 @@ export type Scalars = {
 export type Mutation = {
   __typename?: 'Mutation';
   createProduct: Product;
+  createUser: User;
   deleteProduct: Scalars['Boolean'];
 };
 
@@ -27,8 +28,20 @@ export type MutationCreateProductArgs = {
 };
 
 
+export type MutationCreateUserArgs = {
+  data: NewUserInput;
+};
+
+
 export type MutationDeleteProductArgs = {
   id: Scalars['Float'];
+};
+
+export type NewUserInput = {
+  avatar?: InputMaybe<Scalars['String']>;
+  email: Scalars['String'];
+  password: Scalars['String'];
+  username: Scalars['String'];
 };
 
 export type Product = {
@@ -68,6 +81,14 @@ export type QueryGetProductByIdArgs = {
   id: Scalars['Int'];
 };
 
+export type User = {
+  __typename?: 'User';
+  avatar: Scalars['String'];
+  email: Scalars['String'];
+  id: Scalars['Float'];
+  username: Scalars['String'];
+};
+
 export type GetAllProductsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -91,6 +112,13 @@ export type GetProductByIdQueryVariables = Exact<{
 
 
 export type GetProductByIdQuery = { __typename?: 'Query', getProductById: { __typename?: 'Product', description: string, id: string, name: string, picture: string, price: number, growtype: string, origin: string, potency: number, straintype: string, taste: string } };
+
+export type SignupMutationVariables = Exact<{
+  data: NewUserInput;
+}>;
+
+
+export type SignupMutation = { __typename?: 'Mutation', createUser: { __typename?: 'User', id: number, username: string, email: string, avatar: string } };
 
 
 export const GetAllProductsDocument = gql`
@@ -257,3 +285,39 @@ export function useGetProductByIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOpt
 export type GetProductByIdQueryHookResult = ReturnType<typeof useGetProductByIdQuery>;
 export type GetProductByIdLazyQueryHookResult = ReturnType<typeof useGetProductByIdLazyQuery>;
 export type GetProductByIdQueryResult = Apollo.QueryResult<GetProductByIdQuery, GetProductByIdQueryVariables>;
+export const SignupDocument = gql`
+    mutation Signup($data: NewUserInput!) {
+  createUser(data: $data) {
+    id
+    username
+    email
+    avatar
+  }
+}
+    `;
+export type SignupMutationFn = Apollo.MutationFunction<SignupMutation, SignupMutationVariables>;
+
+/**
+ * __useSignupMutation__
+ *
+ * To run a mutation, you first call `useSignupMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useSignupMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [signupMutation, { data, loading, error }] = useSignupMutation({
+ *   variables: {
+ *      data: // value for 'data'
+ *   },
+ * });
+ */
+export function useSignupMutation(baseOptions?: Apollo.MutationHookOptions<SignupMutation, SignupMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<SignupMutation, SignupMutationVariables>(SignupDocument, options);
+      }
+export type SignupMutationHookResult = ReturnType<typeof useSignupMutation>;
+export type SignupMutationResult = Apollo.MutationResult<SignupMutation>;
+export type SignupMutationOptions = Apollo.BaseMutationOptions<SignupMutation, SignupMutationVariables>;

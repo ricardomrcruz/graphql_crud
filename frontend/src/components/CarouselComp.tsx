@@ -19,6 +19,7 @@ export default function CarouselComp() {
         <div>
           <img src="/banner/carousel3.jpg" alt="" />
         </div>
+        
       </Carousel>
     </div>
   );
