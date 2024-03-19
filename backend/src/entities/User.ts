@@ -1,10 +1,23 @@
 import { IsEmail, IsStrongPassword, Length } from "class-validator";
-import { Entity, BaseEntity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, BeforeInsert } from "typeorm";
 import { ObjectType, Field, ID, InputType } from "type-graphql";
+import { hash } from 'argon2';
+
 
 @Entity()
 @ObjectType()
 export default class User extends BaseEntity {
+    password:string
+
+
+    //voir docv type orm
+    @BeforeInsert()
+    async hashPassword() {
+        this.hashedPassword = await hash(this.password);
+    }
+
+
+
     @Field()
     @PrimaryGeneratedColumn()
     id:number;
@@ -17,7 +30,7 @@ export default class User extends BaseEntity {
     @Column()
     username:string;
 
-    @Field()
+  
     @Column()
     hashedPassword:string;
 
