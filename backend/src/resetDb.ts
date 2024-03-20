@@ -1,5 +1,6 @@
 import db from "./db";
 import Product from "./entities/Product";
+import User from "./entities/User";
 
 export async function clearDB() {
   const runner = db.createQueryRunner();
@@ -21,6 +22,23 @@ export async function clearDB() {
 async function main() {
   await db.initialize();
   await clearDB();
+
+  //default users for production
+  const admin = new User();
+  Object.assign(admin, {
+    username: "admin",
+    email: "visitor@app.com",
+    password: "4dminAdmin@!",
+  });
+  await admin.save();
+
+  const user = new User();
+  Object.assign(user, {
+    username: "guest",
+    email: "guest@app.com",
+    password: "Visitor42@!",
+  });
+  await user.save();
 
   const product1 = Product.create({
     name: "Mandarine Fleur Cbd",

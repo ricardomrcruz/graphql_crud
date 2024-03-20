@@ -38,7 +38,7 @@ export default class User extends BaseEntity {
   @Column({
     default:
       "https://icons.veryicon.com/png/o/miscellaneous/standard/avatar-15.png",
-  });
+  })
 
   @Field()
   avatar: string;
@@ -59,6 +59,19 @@ export class NewUserInput {
   avatar?: string;
 
   
+  @Field()
+  @IsStrongPassword()
+  password: string;
+}
+
+
+@InputType()
+export class LoginInput {
+  @IsEmail()
+  @Field()
+  email: string;
+
+
   @Field()
   @IsStrongPassword()
   password: string;
