@@ -30,7 +30,10 @@ class UserResolver {
     );
     if (!passwordVerified) throw new GraphQLError("Password Invalid");
 
-    const token = jwt.sign({ userId: existingUser.id }, env.JWT_PRIVATE_KEY);
+    const token = jwt.sign({ userId: existingUser.id }, 
+      env.JWT_PRIVATE_KEY, {
+      expiresIn: "30d",
+    });
 
     // return "ok";
     return token;
