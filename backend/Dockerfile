@@ -3,10 +3,13 @@ FROM node:20.9.0-alpine3.17
 WORKDIR /app
 
 COPY package*.json ./
+
+
 RUN npm i
 
-COPY tsconfig.json ./tsconfig.json
 COPY .env ./.env
-COPY src ./src 
+COPY src ./src
+COPY tsconfig.json ./tsconfig.json
 
-CMD npm run start
+
+CMD ["npm", "start"]
