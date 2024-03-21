@@ -27,7 +27,7 @@ async function main() {
   const admin = new User();
   Object.assign(admin, {
     username: "admin",
-    email: "visitor@app.com",
+    email: "admin@app.com",
     password: "4dminAdmin@!",
   });
   await admin.save();
