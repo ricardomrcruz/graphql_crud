@@ -13,8 +13,6 @@ import cors from "cors";
 
 import { Context } from "./types";
 
-
-
 const app = express();
 const httpServer = http.createServer(app);
 
@@ -31,33 +29,17 @@ schemaIsBuilt.then(async (schema) => {
   app.use(
     "/",
     cors<cors.CorsRequest>({
-        credentials: true, 
-        origin: env.CORS_ALLOWED_ORIGINS.split(','),
+      credentials: true,
+      origin: env.CORS_ALLOWED_ORIGINS.split(","),
     }),
     express.json(),
     expressMiddleware(server, {
       context: async ({ req, res }) => ({ res, req }),
-    }),
+    })
   );
-  await new Promise<void>((resolve) => httpServer.listen({ port: { port } }, resolve));
+  await new Promise<void>((resolve) => httpServer.listen({ port }, resolve));
   console.log(`🚀 Server ready at http://localhost:${port}/`);
-
-  
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import db from "./db";
 // import schemaPromise from "./schema";
