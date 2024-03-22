@@ -3,8 +3,8 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { MdLogin } from "react-icons/md";
-import { TbLogout } from "react-icons/tb";
-import { useProfileQuery } from "@/graphql/generated/schema";
+
+import { useLogoutMutation, useProfileQuery } from "@/graphql/generated/schema";
 
 export default function Layout({
   children,
@@ -13,12 +13,10 @@ export default function Layout({
   children: React.ReactNode;
   pageTitle: string;
 }) {
-
-
+  const [logout] = useLogoutMutation();
   const { data: currentUser, client } = useProfileQuery({
     errorPolicy: "ignore",
   });
-
 
   return (
     <>
@@ -38,21 +36,28 @@ export default function Layout({
             <Image src="/logo1.png" alt="Logo" width={350} height={50} />
           </Link>
           {currentUser ? (
-        <div>
-          <Link href="/login" passHref>
-            <button className=" flex mt-10 py-2 mr-3 px-4 bg-black hover:text-white text-white font-semibold rounded-md shadow-md hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75">
-               Log Out 
-            </button>
-          </Link>
-        </div>
-      ) : (
-        <>
-          <Link href="/login" passHref>
-            <button className=" flex mt-10 py-2 mr-3 px-4 bg-gray-200 hover:text-white text-black font-semibold rounded-md shadow-md hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75">
-               Log In<MdLogin className="ml-2 my-1 text-lg" />
-            </button>
-          </Link>
-         </> )}
+            <div>
+              <Link href="/" passHref>
+                <button
+                  className=" flex mt-12 py-2 text-sm  mr-3 px-4 bg-black hover:text-white text--slate-400 font-semibold rounded-md shadow-md hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75 border border-slate-400"
+                  onClick={async () => {
+                    await logout();
+                    client.resetStore();
+                  }}
+                >
+                  Log Out
+                </button>
+              </Link>
+            </div>
+          ) : (
+            <>
+              <Link href="/login" passHref>
+                <button className=" flex mt-10 py-2 mr-3 px-4 bg-gray-200 hover:text-white text-black font-semibold rounded-md shadow-md hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75">
+                  Log In
+                </button>
+              </Link>
+            </>
+          )}
         </nav>
         <div className="container mx-auto px-4 z-20 relative top-[-47rem] ">
           {children}
