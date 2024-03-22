@@ -9,7 +9,7 @@ export default function CarouselComp() {
       <Carousel
         showArrows={true}
         autoPlay={true}
-        interval={25000}
+        interval={5500}
         infiniteLoop={true}
         showThumbs={false}
       >
