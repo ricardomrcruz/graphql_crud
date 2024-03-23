@@ -3,6 +3,7 @@ import React from "react";
 import { FormEvent, useState } from "react";
 import { useLoginMutation, useProfileQuery } from "@/graphql/generated/schema";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 function validatePassword(p: string) {
   let errors = [];
@@ -46,8 +47,6 @@ export default function Login() {
     } finally {
       client.resetStore();
     }
-
-    
   };
 
   return (
@@ -57,6 +56,11 @@ export default function Login() {
           {" "}
           Vous êtes connecté en tant que {currentUser.profile.username}{" "}
           {currentUser.profile.email} .
+          <Link href="/" passHref>
+            <button className=" py-2 px-4 bg-black text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75">
+              Retoourne au shopping.-
+            </button>
+          </Link>
         </div>
       ) : (
         <>
@@ -100,9 +104,11 @@ export default function Login() {
                 {error !== "" && <pre className="text-red-700">{error}</pre>}
 
                 <div className="mt-4">
-                  <button className=" py-2 px-4 bg-black text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75">
-                    Login
-                  </button>
+                  <Link href="/" passHref>
+                    <button className=" py-2 px-4 bg-black text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75">
+                      Login
+                    </button>
+                  </Link>
                 </div>
               </div>
             </form>

@@ -89,3 +89,15 @@ export class LoginInput {
   @IsStrongPassword()
   password: string;
 }
+
+
+@InputType()
+export class UpdateUserInput{
+  @Length(2, 30)
+  @Field({ nullable: true })
+  username: string;
+
+  @Length(2, 30)
+  @Field({ nullable: true })
+  avatar?: string;
+}
