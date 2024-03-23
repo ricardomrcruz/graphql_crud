@@ -1,4 +1,4 @@
-import { Resolver, Query, Mutation, Arg, Int } from "type-graphql";
+import { Resolver, Query, Mutation, Arg, Int, Authorized } from "type-graphql";
 import Product from "../entities/Product";
 import { ProductInput } from "../entities/Product";
 import { GraphQLError } from "graphql/error";
@@ -19,6 +19,7 @@ class ProductResolver {
     return product;
   }
 
+  @Authorized()
   @Mutation(() => Product)
   async createProduct(@Arg("data") data: ProductInput) {
     const newProduct = await Product.create({ ...data }).save();

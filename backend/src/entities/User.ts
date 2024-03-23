@@ -9,6 +9,12 @@ import {
 import { ObjectType, Field, ID, InputType } from "type-graphql";
 import { hash } from "argon2";
 
+export enum UserRole {
+  Admin = "admin",
+  Visitor = "visitor",
+}
+
+
 @Entity()
 @ObjectType()
 export default class User extends BaseEntity {
@@ -42,6 +48,11 @@ export default class User extends BaseEntity {
 
   @Field()
   avatar: string;
+
+  @Field()
+  @Column({enum: UserRole, default: UserRole.Visitor})
+  role: UserRole;
+
 }
 
 @InputType()
@@ -62,7 +73,9 @@ export class NewUserInput {
   @Field()
   @IsStrongPassword()
   password: string;
-}
+
+
+   }
 
 
 @InputType()

@@ -1,6 +1,6 @@
 import db from "./db";
 import Product from "./entities/Product";
-import User from "./entities/User";
+import User, {UserRole} from "./entities/User";
 
 export async function clearDB() {
   const runner = db.createQueryRunner();
@@ -29,6 +29,7 @@ async function main() {
     username: "admin",
     email: "admin@app.com",
     password: "4dminAdmin@!",
+    role: UserRole.Admin,
   });
   await admin.save();
 
