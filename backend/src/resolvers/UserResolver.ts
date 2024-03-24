@@ -52,6 +52,7 @@ class UserResolver {
     return token;
   }
 
+
   @Authorized()
   @Query(() => User)
   async profile(@Ctx() ctx: Context) {
@@ -60,7 +61,10 @@ class UserResolver {
 
   @Authorized()
   @Mutation(() => User)
-  async updateProfile(@Ctx() ctx: Context, @Arg("data") data: UpdateUserInput) {
+  async updateProfile(
+    @Ctx() ctx: Context,
+    @Arg("data", { validate: true }) data: UpdateUserInput
+  ) {
     if (!ctx.currentUser)
       throw new GraphQLError("you need to be logged in to update your profile");
 
@@ -70,6 +74,7 @@ class UserResolver {
     return ctx.currentUser.save();
   }
 
+  
   @Mutation(() => Boolean)
   async logout(@Ctx() ctx: Context) {
     ctx.res.clearCookie("token");

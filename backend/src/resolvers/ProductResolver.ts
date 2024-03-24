@@ -36,8 +36,8 @@ class ProductResolver {
   async createProduct(@Arg("data") data: ProductInput, @Ctx() ctx: Context) {
     if (!ctx.currentUser) throw new GraphQLError("you need to login again.");
 
-    if (ctx.currentUser.role !== UserRole.Admin)
-      throw new GraphQLError("you dont have the permissions to do that.");
+    // if (ctx.currentUser.role !== UserRole.Admin)
+    //   throw new GraphQLError("you dont have the permissions to do that.");
 
     const newProduct = await Product.create({ ...data }).save();
     return newProduct;
@@ -51,8 +51,8 @@ class ProductResolver {
     
     const product = await Product.findOne({ where: { id } });
     
-    if (ctx.currentUser.role !== UserRole.Admin)
-      throw new GraphQLError("you dont have the permissions to do that.")
+    // if (ctx.currentUser.role !== UserRole.Admin)
+    //   throw new GraphQLError("you dont have the permissions to do that.")
     
     
     if (product === null) {

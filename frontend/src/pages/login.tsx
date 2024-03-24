@@ -104,11 +104,9 @@ export default function Login() {
                 {error !== "" && <pre className="text-red-700">{error}</pre>}
 
                 <div className="mt-4">
-                  <Link href="/" passHref>
                     <button className=" py-2 px-4 bg-black text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75">
                       Login
                     </button>
-                  </Link>
                 </div>
               </div>
             </form>

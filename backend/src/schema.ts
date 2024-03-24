@@ -5,5 +5,5 @@ import { authChecker } from './auth';
 
 export default buildSchema({
   resolvers: [ProductResolver, UserResolver],
-  authChecker
+  authChecker,
 });

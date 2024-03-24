@@ -25,7 +25,6 @@ schemaIsBuilt.then(async (schema) => {
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
   });
   await server.start();
-
   app.use(
     "/",
     cors<cors.CorsRequest>({
@@ -34,7 +33,7 @@ schemaIsBuilt.then(async (schema) => {
     }),
     express.json(),
     expressMiddleware(server, {
-      context: async ({ req, res }) => ({ res, req }),
+      context: async ({ req, res }) => ({ req, res }),
     })
   );
   await new Promise<void>((resolve) => httpServer.listen({ port }, resolve));

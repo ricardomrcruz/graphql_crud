@@ -9,7 +9,7 @@ export class ObjectId{
 }
 
 export interface Context {
-    req:  express.Request;
-    res:  express.Response;
-    currentUser?:  User;
-}
+    req: express.Request;
+    res: express.Response;
+    currentUser?: User;
+  }

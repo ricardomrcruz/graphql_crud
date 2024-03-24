@@ -14,10 +14,9 @@ export enum UserRole {
   Visitor = "visitor",
 }
 
-
 @Entity()
 @ObjectType()
-export default class User extends BaseEntity {
+class User extends BaseEntity {
   password: string;
 
   //voir docv type orm
@@ -31,7 +30,7 @@ export default class User extends BaseEntity {
   id: number;
 
   @Field()
-  @Column()
+  @Column({ unique: true })
   email: string;
 
   @Field()
@@ -45,14 +44,12 @@ export default class User extends BaseEntity {
     default:
       "https://icons.veryicon.com/png/o/miscellaneous/standard/avatar-15.png",
   })
-
   @Field()
   avatar: string;
 
-  @Field()
-  @Column({enum: UserRole, default: UserRole.Visitor})
-  role: UserRole;
-
+  // @Field()
+  // @Column({enum: UserRole, default: UserRole.Visitor})
+  // role: UserRole;
 }
 
 @InputType()
@@ -69,14 +66,10 @@ export class NewUserInput {
   @Field({ nullable: true })
   avatar?: string;
 
-  
   @Field()
   @IsStrongPassword()
   password: string;
-
-
-   }
-
+}
 
 @InputType()
 export class LoginInput {
@@ -84,20 +77,20 @@ export class LoginInput {
   @Field()
   email: string;
 
-
   @Field()
   @IsStrongPassword()
   password: string;
 }
 
-
 @InputType()
-export class UpdateUserInput{
+export class UpdateUserInput {
   @Length(2, 30)
   @Field({ nullable: true })
-  username: string;
+  username?: string;
 
-  @Length(2, 30)
+  @Length(2, 255)
   @Field({ nullable: true })
   avatar?: string;
 }
+
+export default User;

@@ -29,7 +29,7 @@ async function main() {
     username: "admin",
     email: "admin@app.com",
     password: "4dminAdmin@!",
-    role: UserRole.Admin,
+    // role: UserRole.Admin,
   });
   await admin.save();
 
@@ -39,6 +39,7 @@ async function main() {
     email: "guest@app.com",
     password: "Visitor42@!",
   });
+  
   await user.save();
 
   const product1 = Product.create({

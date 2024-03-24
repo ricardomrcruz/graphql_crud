@@ -1,4 +1,4 @@
-import { AuthChecker, Ctx } from "type-graphql";
+import { AuthChecker } from "type-graphql";
 import { Context } from "./types";
 import cookie from "cookie";
 import jwt from "jsonwebtoken";
@@ -7,13 +7,13 @@ import User from "./entities/User";
 
 export const authChecker: AuthChecker<Context> = async ({ context }, roles) => {
   const { headers } = context.req;
-  const { token } = cookie.parse(
-    (context.req.headers["cookie"] as string) || ""
-  );
+  const tokenInCookie = cookie.parse(headers.cookie ?? "").token;
+  const tokenInAuthHeaders = headers.authorization?.split(" ")[1];
+
+  const token = tokenInAuthHeaders ?? tokenInCookie;
+  if (typeof token !== "string") return false;
 
   const decoded = (await jwt.verify(token, env.JWT_PRIVATE_KEY)) as any;
-  // console.log({ decoded });
-
   if (!decoded?.userId) return false;
 
   const currentUser = await User.findOneByOrFail({ id: decoded?.userId });

@@ -1,7 +1,7 @@
 query Profile {
   profile {
-    username
     id
+    username
     email
     avatar
   }
