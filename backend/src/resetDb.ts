@@ -15,7 +15,7 @@ export async function clearDB() {
       runner.query(`DROP TABLE IF EXISTS "${entity.tableName}" CASCADE`)
     )
   );
-  await runner.query("SET session_replication_role = 'origin'");
+  await runner.query("SET session_replication_role = 'replica'");
   await db.synchronize();
 }
 
