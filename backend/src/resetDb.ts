@@ -1,6 +1,6 @@
 import db from "./db";
 import Product from "./entities/Product";
-import User, {UserRole} from "./entities/User";
+import User, { UserRole } from "./entities/User";
 
 export async function clearDB() {
   const runner = db.createQueryRunner();
@@ -39,7 +39,7 @@ async function main() {
     email: "guest@app.com",
     password: "Visitor42@!",
   });
-  
+
   await user.save();
 
   const product1 = Product.create({

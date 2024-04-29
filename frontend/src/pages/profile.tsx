@@ -61,7 +61,7 @@ export default function Profile() {
                 id="username"
                 defaultValue={currentUser.profile.username}
                 minLength={2}
-                maxLength={30}
+                maxLength={30} 
                 className="mt-1 block w-full px-3 py-2 border text-gray-200 border-gray-700 bg-[#090B0D] rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-purple-700"
               />
             </div>
