@@ -31,7 +31,7 @@ class ProductResolver {
     return product;
   }
 
-  @Authorized([UserRole.Admin])
+  @Authorized([UserRole.Admin]) //commented for testing purposes
   @Mutation(() => Product)
   async createProduct(@Arg("data") data: ProductInput, @Ctx() ctx: Context) {
     if (!ctx.currentUser) throw new GraphQLError("you need to login again.");
@@ -43,22 +43,19 @@ class ProductResolver {
     return newProduct;
   }
 
-
   @Authorized([UserRole.Admin])
   @Mutation(() => Boolean)
   async deleteProduct(@Arg("id") id: number, @Ctx() ctx: Context) {
-    if(!ctx.currentUser) throw new GraphQLError("you need to login again.");
-    
+    if (!ctx.currentUser) throw new GraphQLError("you need to login again.");
+
     const product = await Product.findOne({ where: { id } });
-    
+
     // if (ctx.currentUser.role !== UserRole.Admin)
     //   throw new GraphQLError("you dont have the permissions to do that.")
-    
-    
+
     if (product === null) {
       throw new GraphQLError("Product not found");
     }
-
 
     await product.remove();
     return true;
