@@ -1,5 +1,4 @@
-process.env.DB_HOST = "localhost";
-
+// process.env.DB_HOST = "localhost";
 import db from "./db";
 import Product from "./entities/Product";
 import User, { UserRole } from "./entities/User";
