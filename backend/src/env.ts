@@ -10,4 +10,5 @@ export default load({
     JWT_PRIVATE_KEY: String,
     CORS_ALLOWED_ORIGINS: String,
     NODE_ENV: String,
+    FRONTEND_URL: String,
   });
