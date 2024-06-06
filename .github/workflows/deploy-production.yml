@@ -24,7 +24,7 @@ jobs:
 
   build-and-push-client:
     needs:
-      - client-tests
+      - test-client
     uses: ricardomrcruz/graphql_crud/.github/workflows/build-frontend.yml@main
     secrets:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
