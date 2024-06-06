@@ -8,7 +8,7 @@ import Link from "next/link";
 function validatePassword(p: string) {
   let errors = [];
   if (p.length < 8)
-    errors.push("Le mot de passe doit faire minimum 8 caractères");
+    errors.push("Le mot de passe doit faire minimum 8 caractères.");
   if (p.search(/[a-z]/) < 0)
     errors.push("Le mot de passe doit contenir une minuscule");
   if (p.search(/[A-Z]/) < 0)
