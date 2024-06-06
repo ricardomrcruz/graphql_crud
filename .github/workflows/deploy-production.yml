@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  client-tests:
+  test-client:
     uses: ricardomrcruz/graphql_crud/.github/workflows/tests-front.yml@main
 
   integration-tests:
