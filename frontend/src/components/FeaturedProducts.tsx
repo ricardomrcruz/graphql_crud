@@ -15,7 +15,7 @@ export default function FeaturedProducts() {
       <div className="text-white text-3xl  w-full text-center justify-center  ">
         <h1 className="text-left my-10">Meilleures Ventes Fleur CBD</h1>
       </div>
-      <div className="  items-center grid grid-cols-4">
+      <div className="  items-center grid grid-cols-4"  data-testid="prod-list">
         {products.map((product) => (
           <div className="inter-var w-full bg-gray-50 relative dark:hover:shadow-2xl  dark:bg-black dark:border-white/[0.2] border-black/[0.1]  h-[25rem] rounded-sm p-2 border">
             <Link href={`/products/${product.id}`}>
