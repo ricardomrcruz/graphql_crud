@@ -14,7 +14,6 @@ import User from "./entities/User";
 //   synchronize: true,
 // });
 
-
 // FOR TESTING PURPOSES
 const db = new DataSource({
   type: "postgres",

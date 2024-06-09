@@ -1,5 +1,4 @@
 import { test, expect } from "@playwright/test";
-
 import Product from "../../backend/src/entities/Product";
 import { connect, disconnect } from "./dbHelpers";
 import { clearDB } from "../../backend/src/db";
@@ -26,10 +25,9 @@ test("can view products in db", async ({ page }) => {
     email: "guest@app.com",
     password: "Visitor42@!",
   });
-
   await user.save();
 
-  const product1 = Product.create({
+  const product1 = await Product.create({
     name: "Mandarine Fleur Cbd",
     description: `Découvrez notre Fleur de CBD Mandarine 🍊, de première qualité
     et provenance italienne, riche en terpènes primaires tels que
@@ -50,10 +48,10 @@ test("can view products in db", async ({ page }) => {
     origin: "Nord Italie",
     taste: "Diesel • Citrus",
     potency: 10,
-  });
+  }).save();
 
   // Product 2
-  const product2 = Product.create({
+  const product2 = await Product.create({
     name: "Blue Dream Essence Fleur CBD",
     description: `Explorez la quintessence de Blue Dream 🌌, une fleur de CBD de haute qualité
 avec une origine californienne. Riche en terpènes comme le Limonène, l'Alpha-Pinène,
@@ -69,7 +67,7 @@ aventure céleste. Vivez un moment de détente pur et inspirant à chaque utilis
     origin: "Californie, USA",
     taste: "Berry • Pine",
     potency: 12,
-  });
+  }).save();
 
   await page.goto("/");
   await page.getByRole("heading", { name: "Meilleures Ventes Fleur CBD" });
@@ -79,6 +77,7 @@ aventure céleste. Vivez un moment de détente pur et inspirant à chaque utilis
     product1.price.toString()
   );
 
+  await page.pause();
   await expect(page.getByTestId("prod-list")).toContainText(product2.name);
   await expect(page.getByTestId("prod-list")).toContainText(
     product2.price.toString()
