@@ -18,7 +18,7 @@ import { UserRole } from "../entities/User";
 @Resolver(Product)
 class ProductResolver {
   @Query(() => [Product])
-  async products() {
+  async products(): Promise<Product[]> {
     return Product.find();
   }
 
